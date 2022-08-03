@@ -1,0 +1,23 @@
+/* You can add global styles to this file, and also import other style files */
+
+html{
+background-color: rgb(4, 4, 49);
+}
+
+section {
+  max-width: 700px;
+  margin-left: 30px;
+}
+
+#headerContent{
+  height : 100px;
+}
+
+@media screen and (max-width: 780px){
+  section{
+    margin-left: 0px;
+  }
+  #headerContent{
+    height : 0px;
+  }
+}

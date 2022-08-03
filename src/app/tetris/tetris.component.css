@@ -1,0 +1,50 @@
+
+section {
+  display : flex;
+  flex-direction: line;
+  flex-wrap: wrap;
+  padding:5px;
+}
+
+.children {
+  margin:5px;
+}
+
+#scoreBar {
+  display: flex;
+  flex-direction: column;
+  margin-left: 30px;
+}
+
+@media screen and (max-width: 780px){
+  #commandBar {
+    order: -1;
+
+    width:60%;
+  }
+
+  .children{
+    width: 100vw;
+    margin: 0px;
+  }
+
+  #grid{
+    height:75vh;
+  }
+
+  section{
+    padding:0px;
+  }
+
+  #scoreBar {
+    margin-left: 0px;
+    width:100vw;
+    flex-direction: row;
+
+  flex-wrap: wrap;
+  }
+
+  #nextTetromino{
+    width:40%;
+  }
+}

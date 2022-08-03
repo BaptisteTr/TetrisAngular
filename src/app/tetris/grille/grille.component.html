@@ -1,0 +1,10 @@
+
+<section>
+  <div id="game-grid" class="wrapper grid">
+
+    <span [style.--display]="displayGameOver" id="gameOver">Game over</span>
+    <span [style.--display]="displayPause" id="pause">Pause</span>
+    <div *ngFor="let square of grid.square_list" class="cell {{square.color}}"></div>
+
+  </div>
+</section>
