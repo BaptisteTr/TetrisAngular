@@ -4,8 +4,7 @@ import { TetrisComponent } from './tetris/tetris.component';
 
 
 const routes: Routes = [
-  { path: '', redirectTo: '/tetris', pathMatch: 'full' },
-  { path: 'tetris', component: TetrisComponent }
+  { path: '', component: TetrisComponent }
 ];
 
 @NgModule({
