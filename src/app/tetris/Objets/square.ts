@@ -2,9 +2,7 @@ import { Grid } from "./grid";
 
 export class Square {
 
-  constructor(public height_position:number, public width_position:number, public color:string = "white", public filled:boolean = false){}
-
-
+  constructor(public height_position:number, public width_position:number, public color:string = "white", public filled:boolean = false, public isDisappearing:string = ""){}
 
   public isFilled(grid:Grid,centerPosY: number, centerPosX: number){
     if(grid.square_list.find(square => square.height_position == (this.height_position + centerPosY)

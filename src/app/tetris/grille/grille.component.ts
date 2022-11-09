@@ -1,4 +1,4 @@
-import { EventEmitter, Output } from '@angular/core';
+import {EventEmitter, Input, Output} from '@angular/core';
 import {Component, HostListener, OnInit} from '@angular/core';
 import {Grid} from '../Objets/grid';
 import { Score } from '../Objets/score';
@@ -14,6 +14,7 @@ export class GrilleComponent implements OnInit {
   public lines: number = 20;
   public columns: number = 10;
   public currentTetromino:Tetromino;
+  public hoverTetromino:Tetromino;
   public nextTetromino:Tetromino;
   public score:Score = new Score();
   public speedValue;
@@ -22,12 +23,15 @@ export class GrilleComponent implements OnInit {
   public isGameOver: boolean;
   displayGameOver: string;
   displayPause: string;
+  displayScore: string;
   pause: boolean = false;
+  @Input()
+  hover: boolean = false;
+  scoreAnimation="";
+  lastScoreTick = 0;
 
   @Output() tetrominoChanged =  new EventEmitter<Tetromino>();
   @Output() scoreChanged =  new EventEmitter<Score>();
-
-
 
   constructor() {
     this.currentTetromino = this.randomTetromino();
@@ -38,6 +42,10 @@ export class GrilleComponent implements OnInit {
     this.isGameOver = false;
     this.displayGameOver = "none";
     this.displayPause = "none";
+    this.displayScore = "none";
+    this.hoverTetromino = new TetrominoI();
+    this.hoverTetromino.copy(this.currentTetromino);
+    this.hoverTetromino.moveDownUntilLock(this.grid);
   }
 
   async ngOnInit() {
@@ -46,22 +54,30 @@ export class GrilleComponent implements OnInit {
 
     this.grid = new Grid(this.lines,this.columns);
     this.tetrominoChanged.emit(this.nextTetromino);
+    this.hoverTetromino.copy(this.currentTetromino);
+    this.hoverTetromino.moveDownUntilLock(this.grid);
 
     setInterval(()=>this.gameplayLoop(),1000/60);
   }
 
   draw(){
-    this.grid.display(this.currentTetromino);
+    if(this.hover) {
+      this.grid.display(this.currentTetromino, this.hoverTetromino);
+    } else {
+      this.grid.display(this.currentTetromino, undefined);
+    }
   }
 
   gameplayLoop(){
-    if(this.isGameOver == false && this.pause == false){
+    if (!this.isGameOver && !this.pause){
       this.displayGameOver="none";
       this.displayPause="none";
       this.tcurrent = performance.now();
 
       if(this.tcurrent - this.tLastDown >= this.speedValue){
         this.currentTetromino.checkAndMoveDown(this.grid);
+        this.hoverTetromino.copy(this.currentTetromino);
+        this.hoverTetromino.moveDownUntilLock(this.grid);
         this.tLastDown = this.tcurrent;
       }
       if(this.currentTetromino.locked){
@@ -73,6 +89,8 @@ export class GrilleComponent implements OnInit {
           this.nextTetromino.setDefaultPosition();
           this.tetrominoChanged.emit(this.nextTetromino);
           this.currentTetromino.setStartPosition();
+          this.hoverTetromino.copy(this.currentTetromino);
+          this.hoverTetromino.moveDownUntilLock(this.grid);
         }
 
         this.cleanCompletedLines();
@@ -92,6 +110,9 @@ export class GrilleComponent implements OnInit {
       let line = this.grid.square_list.filter(block => (block.height_position == y && block.filled));
       if(line.length == this.columns){
         lineCount++;
+        line.forEach(block => {
+          block.isDisappearing = "disappearing";
+        });
         for(let y2:number = y; y2 >= 0; y2--)
         {
           let currentLine = this.getLine(y2);
@@ -120,6 +141,13 @@ export class GrilleComponent implements OnInit {
         this.speedValue -=  speedChange;
       }
 
+      this.lastScoreTick = score;
+      this.displayScore="block";
+      this.scoreAnimation="animateScore";
+      setTimeout(() => {
+        this.displayScore="none";
+        this.scoreAnimation="";
+      }, 1000);
       this.scoreChanged.emit(this.score);
     }
   }
@@ -129,15 +157,27 @@ export class GrilleComponent implements OnInit {
   }
 
   onArrowLeft(){
-    this.currentTetromino.checkAndMoveLeft(this.grid);
+    if(!this.pause){
+      this.currentTetromino.checkAndMoveLeft(this.grid);
+      this.hoverTetromino.copy(this.currentTetromino);
+      this.hoverTetromino.moveDownUntilLock(this.grid);
+    }
   }
 
   onArrowRight(){
-    this.currentTetromino.checkAndMoveRight(this.grid);
+    if(!this.pause) {
+      this.currentTetromino.checkAndMoveRight(this.grid);
+      this.hoverTetromino.copy(this.currentTetromino);
+      this.hoverTetromino.moveDownUntilLock(this.grid);
+    }
   }
 
   onArrowDown(){
-    this.currentTetromino.checkAndMoveDown(this.grid);
+    if(!this.pause) {
+      this.currentTetromino.checkAndMoveDown(this.grid);
+      this.hoverTetromino.copy(this.currentTetromino);
+      this.hoverTetromino.moveDownUntilLock(this.grid);
+    }
   }
 
   onArrowUp(){
@@ -145,7 +185,11 @@ export class GrilleComponent implements OnInit {
   }
 
   onSpaceBar(){
-    this.currentTetromino.rotate(this.grid);
+    if(!this.pause) {
+      this.currentTetromino.rotate(this.grid);
+      this.hoverTetromino.copy(this.currentTetromino);
+      this.hoverTetromino.moveDownUntilLock(this.grid);
+    }
   }
 
   onL(){
@@ -165,6 +209,8 @@ export class GrilleComponent implements OnInit {
     this.currentTetromino.setStartPosition();
     this.nextTetromino = this.randomTetromino();
     this.nextTetromino.setDefaultPosition();
+    this.hoverTetromino.copy(this.currentTetromino);
+    this.hoverTetromino.moveDownUntilLock(this.grid);
     this.speedValue =  725;
     this.isGameOver = false;
     this.displayGameOver = "none";
@@ -175,7 +221,6 @@ export class GrilleComponent implements OnInit {
     this.scoreChanged.emit(this.score);
   }
 
-
   randomTetromino(): Tetromino {
     const tetrominos = [TetrominoI, TetrominoJ, TetrominoL, TetrominoO, TetrominoS, TetrominoT, TetrominoZ];
     var randTetromino = tetrominos[Math.floor(Math.random() * tetrominos.length)];
@@ -183,9 +228,6 @@ export class GrilleComponent implements OnInit {
     var randColor = colors[Math.floor(Math.random() * colors.length)];
     return new randTetromino(randColor);
   }
-
-
-
 
   calculateScore(lineCount: number, vitesse: number) : number {
     let baseValue = 40;
@@ -210,7 +252,7 @@ export class GrilleComponent implements OnInit {
         baseValue = 0;
       }
     }
-    return baseValue * (vitesse + 1);;
+    return baseValue * (vitesse + 1);
   }
 
 

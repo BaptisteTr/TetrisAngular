@@ -9,5 +9,12 @@
   <div (click)="triggerPause()" id="pause" class="button"><img src="assets/img/pause.png"></div>
   <div class="break"></div>
   <div (click)="triggerRestart()" id="restart" class="button"><img src="assets/img/restart.png"></div>
+  <div class="break"></div>
+  <div class="options">
+    <label class="switch">
+      <input [(ngModel)]='toggle' (change)="triggerHover()" type="checkbox">
+      <span class="slider"></span>
+    </label>
+  </div>
 
 </div>

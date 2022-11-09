@@ -29,7 +29,7 @@ export class NextTetrominoComponent implements OnInit, OnChanges  {
   refresh(): void{
 
     if(this.tetromino != null){
-      this.grid.display(this.tetromino);
+      this.grid.display(this.tetromino, undefined);
     }
   }
 

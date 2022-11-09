@@ -13,6 +13,9 @@ export class CommandBarComponent implements OnInit {
   @Output() rotate =  new EventEmitter<any>();
   @Output() pause =  new EventEmitter<any>();
   @Output() restart =  new EventEmitter<any>();
+  @Output() toggleHover = new EventEmitter<any>();
+
+  toggle = false;
 
   constructor() { }
 
@@ -36,6 +39,9 @@ export class CommandBarComponent implements OnInit {
   }
   triggerRestart(){
     this.restart.emit();
+  }
+  triggerHover(){
+    this.toggleHover.emit(this.toggle);
   }
 
 }

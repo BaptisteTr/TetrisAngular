@@ -19,6 +19,7 @@ export class TetrisComponent implements OnInit,AfterViewInit  {
   public rotate:any;
   public pause:any;
   public restart:any;
+  public toggle:any;
 
   @ViewChild(GrilleComponent)
   private grille: any;
@@ -28,7 +29,7 @@ export class TetrisComponent implements OnInit,AfterViewInit  {
   }
 
   ngAfterViewInit(): void {
-    setInterval(()=> this.gameLoop(), 1000/this.fps);
+    setInterval(() => this.gameLoop(), 1000 / this.fps);
   }
 
   ngOnInit(): void {
@@ -68,6 +69,10 @@ export class TetrisComponent implements OnInit,AfterViewInit  {
 
   scoreChangedHandler(score:Score){
     this.score = score;
+  }
+
+  toggleHandler(toggle : boolean){
+    this.toggle = toggle;
   }
 
 }

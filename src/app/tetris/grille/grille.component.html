@@ -4,7 +4,8 @@
 
     <span [style.--display]="displayGameOver" id="gameOver">Game over</span>
     <span [style.--display]="displayPause" id="pause">Pause</span>
-    <div *ngFor="let square of grid.square_list" class="cell {{square.color}}"></div>
+    <span [style.--display]="displayScore" id="score" class="{{scoreAnimation}}">+{{lastScoreTick}}</span>
+    <div *ngFor="let square of grid.square_list" class="cell {{square.color}} {{square.isDisappearing}}"></div>
 
   </div>
 </section>

@@ -16,6 +16,14 @@ export abstract class Tetromino {
     this.blocks = this.directions[0];
   }
 
+  public copy(tetromino:Tetromino ){
+    this.centerPosY = tetromino.centerPosY;
+    this.centerPosX = tetromino.centerPosX;
+    this.blocks = [...tetromino.blocks];
+    this.directions = [...tetromino.directions];
+    this.color = tetromino.color;
+  }
+
 
   public display(square_list: Array<Square>){
     square_list.filter(square => square.filled == false).map(square => square.color = "white");
@@ -29,7 +37,19 @@ export abstract class Tetromino {
     );
   }
 
+  public displayHover(square_list: Array<Square>){
+    this.blocks.forEach(
+      block => {
+        let square = square_list.find(square => square.height_position == (block.height_position + this.centerPosY) && square.width_position == (block.width_position + this.centerPosX) && square.color == "white" );
+        if(square != undefined){
+          square.color = this.color+" hover";
+        }
+      }
+    );
+  }
+
   public lock(grid: Grid){
+
     this.blocks.forEach(
       block => {
         let square = grid.square_list.find(square => square.height_position == (block.height_position + this.centerPosY) && square.width_position == (block.width_position + this.centerPosX) );
@@ -71,6 +91,7 @@ export abstract class Tetromino {
       posXOffset++;
     }
 
+
     this.getBlocks().forEach(block => {
       if(this.centerPosY + block.height_position + posYOffset >= grid.height || block.isFilled(grid,this.centerPosY + posYOffset,this.centerPosX)){
         resultat= false;
@@ -92,6 +113,12 @@ export abstract class Tetromino {
       this.centerPosY++;
     } else {
       this.lock(grid);
+    }
+  }
+
+  public moveDownUntilLock(grid:Grid): void{
+    while(this.isLegal(grid, 2)){
+      this.centerPosY++;
     }
   }
 

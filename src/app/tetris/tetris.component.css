@@ -1,9 +1,14 @@
 
 section {
   display : flex;
-  flex-direction: line;
+  flex-direction: row;
   flex-wrap: wrap;
   padding:5px;
+  width: 100vw;
+  height: 90vh;
+  align-items: center;
+  justify-items: center;
+  margin: auto;
 }
 
 .children {
@@ -19,7 +24,6 @@ section {
 @media screen and (max-width: 780px){
   #commandBar {
     order: -1;
-
     width:60%;
   }
 

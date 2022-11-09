@@ -5,15 +5,32 @@
   position: relative;
   border: 20px solid #3f3f3f;
   box-shadow: 0 0 100px 0 #000;
+  aspect-ratio: 10/20;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(149, 165, 166, 40%) 0px,
+    rgba(149, 165, 166, 40%) 0.5px,
+    transparent 0.5px,
+    transparent 27px,
+    rgba(149, 165, 166, 40%) 27.5px,
+    rgba(149, 165, 166, 40%) 28px
+  ), repeating-linear-gradient(
+    to right,
+    rgba(149, 165, 166, 40%) 0px,
+    rgba(149, 165, 166, 40%) 0.5px,
+    transparent 0.5px,
+    transparent 27px,
+    rgba(149, 165, 166, 40%) 27.5px,
+    rgba(149, 165, 166, 40%) 28px
+  ), black;
 }
 
 .cell {
-  width: 20px;
-  height: 20px;
+  width: 22px;
+  height: 22px;
   display: inline-block;
-  border-radius: 2px;
-  border-width: 3px;
   border-style: outset;
+  border-color: transparent;
 }
 
 .purple {
@@ -23,30 +40,29 @@
 }
 
 .white {
-  background-color: black;
-  border-color:rgb(53, 52, 52) ;
-  border-width: 1px;
-  width: 24px;
-  height: 24px;
-  border-style: solid;
+  width: 22px;
+  height: 22px;
 }
 
 .grey {
   background-color: #95a5a6;
   border-color: #95a5a6;
   box-shadow: inset 0 0 1px 1px #ccd4d5;
+  z-index: 1;
 }
 
 .green {
   background-color: #39d352;
   border-color:#39d352;
   box-shadow: inset 0 0 1px 1px #7afd60;
+  z-index: 1;
 }
 
 .yellow {
   background-color: #f3d528;
   border-color:#f3e528;
   box-shadow: inset 0 0 1px 1px #f0e588;
+  z-index: 1;
 }
 
 .turquoise {
@@ -54,12 +70,14 @@
   border-color:#1abc9c;
   box-shadow: inset 0 0 1px 1px #55e7ca;
   filter: saturate(3);
+  z-index: 1;
 }
 
 .blue {
   background-color: #0f6fc9;
   border-color:#0f6fc9;
   box-shadow: inset 0 0 1px 1px #0ba4eb;
+  z-index: 1;
 }
 
 .lightBlue {
@@ -67,12 +85,19 @@
   border-color:#01A2E8;
   box-shadow: inset 0 0 1px 1px #0ba4eb;
   filter: saturate(3);
+  z-index: 1;
 }
 
 .orange {
   background-color: #ff9100;
   border-color:#ff9100;
   box-shadow: inset 0 0 1px 1px #f7b02d;
+  z-index: 1;
+}
+
+.hover {
+  filter : contrast(175%) opacity(30%) ;
+  z-index: 0;
 }
 
 section {
@@ -82,7 +107,7 @@ section {
   left: 50px;
 }
 
-#gameOver, #pause {
+#gameOver, #pause, #score {
   font-family: 'Press Start 2P';
   font-size:70px;
   color:crimson;
@@ -95,6 +120,12 @@ section {
   z-index: 2;
   display: var(--display);
 }
+
+.animateScore{
+  animation: 1s linear 0s animate;
+}
+
+@keyframes animate { from { top:100%; } to { top:50%; }  }
 
 @media screen and (max-width: 780px){
   .wrapper {

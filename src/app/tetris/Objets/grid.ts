@@ -14,8 +14,11 @@ export class Grid {
     }
   }
 
-  display(tetromino:Tetromino){
+  display(tetromino:Tetromino, tetrominoHover:Tetromino|undefined){
     tetromino.display(this.square_list);
+    if(tetrominoHover != undefined) {
+      tetrominoHover.displayHover(this.square_list);
+    }
   }
 
 }

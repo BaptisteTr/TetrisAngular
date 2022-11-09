@@ -8,6 +8,7 @@ import { NextTetrominoComponent } from './tetris/next-tetromino/next-tetromino.c
 import { TetrisComponent } from './tetris/tetris.component';
 import { ScoreCounterComponent } from './tetris/score-counter/score-counter.component';
 import { CommandBarComponent } from './command-bar/command-bar.component';
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -18,10 +19,11 @@ import { CommandBarComponent } from './command-bar/command-bar.component';
     ScoreCounterComponent,
     CommandBarComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        FormsModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
