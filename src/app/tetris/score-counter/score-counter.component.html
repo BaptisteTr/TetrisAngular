@@ -1,3 +1,14 @@
-<div id="scoreDiv"><p>lines : {{score.lineScore}} </p>
-<p> score : {{score.pointScore}}</p>
-<p> speed : {{score.vitesse}}</p></div>
+<div id="scoreDiv">
+  <div class="scoreItem">
+    <p class="label">lines</p>
+    <div class="scoreBox"><p>{{score.lineScore}}</p></div>
+  </div>
+  <div class="scoreItem">
+    <p class="label">score</p>
+    <div class="scoreBox"><p>{{score.pointScore}}</p></div>
+  </div>
+  <div class="scoreItem">
+    <p class="label">speed</p>
+    <div class="scoreBox"><p>{{score.vitesse}}</p></div>
+  </div>
+</div>

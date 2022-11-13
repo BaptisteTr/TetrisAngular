@@ -134,6 +134,18 @@ export abstract class Tetromino {
     }
   }
 
+  public getHeight() : number {
+    const maxHeight = Math.max(...this.blocks.map( b => b.height_position));
+    const minHeight = Math.min(...this.blocks.map( b => b.height_position));
+    return Math.abs(maxHeight - minHeight) + 1;
+  }
+
+  public getWidth() : number {
+    const maxWidth = Math.max(...this.blocks.map( b => b.width_position));
+    const minWidth = Math.min(...this.blocks.map( b => b.width_position));
+    return Math.abs(maxWidth - minWidth) + 1;
+  }
+
   abstract setStartPosition() : void;
 
   abstract setDefaultPosition() : void;
@@ -147,8 +159,8 @@ export class TetrominoI extends Tetromino {
     this.centerPosX = 4;
   }
   setDefaultPosition(): void {
-    this.centerPosY = 2;
-    this.centerPosX = 2;
+    this.centerPosY = 1;
+    this.centerPosX = 0;
   }
 
   private position1 = new Array<Square> (
@@ -176,8 +188,8 @@ export class TetrominoJ extends Tetromino {
     this.centerPosX = 4;
   }
   setDefaultPosition(): void {
-    this.centerPosY = 2;
-    this.centerPosX = 2;
+    this.centerPosY = 1;
+    this.centerPosX = 1;
   }
 
   private position1 = new Array<Square> (
@@ -216,8 +228,8 @@ export class TetrominoL extends Tetromino {
     this.centerPosX = 4;
   }
   setDefaultPosition(): void {
-    this.centerPosY = 2;
-    this.centerPosX = 2;
+    this.centerPosY = 1;
+    this.centerPosX = 1;
   }
 
   private position1 = new Array<Square> (
@@ -256,8 +268,8 @@ export class TetrominoO extends Tetromino {
     this.centerPosX = 4;
   }
   setDefaultPosition(): void {
-    this.centerPosY = 2;
-    this.centerPosX = 2;
+    this.centerPosY = 0;
+    this.centerPosX = 0;
   }
 
   private position1 = new Array<Square> (
@@ -278,8 +290,8 @@ export class TetrominoS extends Tetromino {
     this.centerPosX = 4;
   }
   setDefaultPosition(): void {
-    this.centerPosY = 2;
-    this.centerPosX = 2;
+    this.centerPosY = 1;
+    this.centerPosX = 1;
   }
 
   private position1 = new Array<Square> (
@@ -307,8 +319,8 @@ export class TetrominoT extends Tetromino {
     this.centerPosX = 4;
   }
   setDefaultPosition(): void {
-    this.centerPosY = 2;
-    this.centerPosX = 2;
+    this.centerPosY = 1;
+    this.centerPosX = 1;
   }
 
   private position1 = new Array<Square> (
@@ -350,8 +362,8 @@ export class TetrominoZ extends Tetromino {
     this.centerPosX = 4;
   }
   setDefaultPosition(): void {
-    this.centerPosY = 2;
-    this.centerPosX = 2;
+    this.centerPosY = 0;
+    this.centerPosX = 1;
   }
 
   private position1 = new Array<Square> (

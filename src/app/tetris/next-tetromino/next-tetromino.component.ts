@@ -8,8 +8,6 @@ import { Grid } from '../Objets/grid';
 })
 export class NextTetrominoComponent implements OnInit, OnChanges  {
   public grid : Grid = new Grid(0,0);
-  public lines: number = 5;
-  public columns: number = 5;
   @Input()
   tetromino: any;
 
@@ -22,13 +20,14 @@ export class NextTetrominoComponent implements OnInit, OnChanges  {
   }
 
   ngOnInit(): void {
-    this.grid = new Grid(this.lines,this.columns);
     this.refresh();
   }
 
   refresh(): void{
 
-    if(this.tetromino != null){
+    if (this.tetromino != null){
+      console.log(this.tetromino.getHeight(), this.tetromino.getWidth());
+      this.grid = new Grid(this.tetromino.getHeight(), this.tetromino.getWidth());
       this.grid.display(this.tetromino, undefined);
     }
   }

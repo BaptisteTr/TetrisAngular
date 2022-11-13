@@ -5,23 +5,23 @@
   position: relative;
   border: 20px solid #3f3f3f;
   box-shadow: 0 0 100px 0 #000;
-  aspect-ratio: 10/20;
+  aspect-ratio: 1/2;
   background: repeating-linear-gradient(
     to bottom,
     rgba(149, 165, 166, 40%) 0px,
-    rgba(149, 165, 166, 40%) 0.5px,
-    transparent 0.5px,
-    transparent 27px,
-    rgba(149, 165, 166, 40%) 27.5px,
-    rgba(149, 165, 166, 40%) 28px
+    rgba(149, 165, 166, 40%) 1px,
+    transparent 1px,
+    transparent calc(5% - 1px),
+    rgba(149, 165, 166, 40%) calc(5% - 1px),
+    rgba(149, 165, 166, 40%) 5%
   ), repeating-linear-gradient(
     to right,
     rgba(149, 165, 166, 40%) 0px,
-    rgba(149, 165, 166, 40%) 0.5px,
-    transparent 0.5px,
-    transparent 27px,
-    rgba(149, 165, 166, 40%) 27.5px,
-    rgba(149, 165, 166, 40%) 28px
+    rgba(149, 165, 166, 40%) 1px,
+    transparent 1px,
+    transparent calc(10% - 1px),
+    rgba(149, 165, 166, 40%) calc(10% - 1px),
+    rgba(149, 165, 166, 40%) 10%
   ), black;
 }
 
@@ -132,6 +132,7 @@ section {
     border: 0px;
     width:  37.5vh;
     height:100%;
+
   }
 
   section {
@@ -150,13 +151,4 @@ section {
     border-style: outset;
   }
 
-  .white {
-    width: 100%;
-    height: 100%;
-
-    border-style: solid;
-
-    border-radius: 0px;
-    border-width: 2px;
-  }
 }

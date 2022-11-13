@@ -13,6 +13,7 @@
   -moz-user-select: none;
 -webkit-user-select: none;
 user-select: none;
+  pointer-events: all;
 }
 .button:active {
   border-style: inset;
@@ -26,14 +27,15 @@ img {
   left:50%;
   margin-top:-10px;
   margin-left:-10px;
+  pointer-events: none;
 }
-
 
 .wrapper{
   width: 200px;
   display: flex;
   justify-content: center;
   flex-flow: row wrap;
+  padding-top: 20px;
 }
 
 #down {
@@ -46,12 +48,28 @@ img {
   width: 200px;
 }
 
-#pause {
-  width: 200px;
+#gameButtons{
+  display: flex;
+  gap : 20px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-#restart {
-  align-self: flex-end;
+.buttonAndLabel {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.buttonAndLabel > p{
+  font-size: small;
+  font-family: 'Press Start 2P', serif;
+  color: white;
 }
 
 .options {

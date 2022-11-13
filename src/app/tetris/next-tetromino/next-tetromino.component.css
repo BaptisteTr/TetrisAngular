@@ -1,19 +1,30 @@
 .wrapper {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
   gap: 0px;
-  width: 128px;
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border: 1px solid #050202;
+  background-color: rgba(0,0,0,50%);
+  width : 150px;
+  height: 150px;
+
+}
+
+.grid {
+  display: grid;
+  width: fit-content;
+  grid-template-columns: repeat(var(--width), 1fr);
+  grid-template-rows: repeat(var(--height), 1fr);
 }
 
 
 .cell {
-  width: 20px;
-  height: 20px;
+  width: 22px;
+  height: 22px;
   display: inline-block;
-  border-width: 3px;
   border-style: outset;
+  border-color: transparent;
 }
 
 .purple {
@@ -23,12 +34,8 @@
 }
 
 .white {
-  background-color: black;
-  border-color:black;
-  border-width: 1px;
-  width: 24px;
-  height: 24px;
-  border-style: solid;
+  width: 22px;
+  height:22px;
 }
 
 .grey {

@@ -1,16 +1,36 @@
 p{
-  color:black;
-  margin-left: 10px;
-  margin-right: 10px;
-  font-family: 'Press Start 2P';
-  padding-left: 10px;
+  color:white;
+  font-family: 'Press Start 2P', serif;
+  text-align: center;
+}
 
-  border : 1px solid black;
+.scoreBox > p {
+  font-size: large;
+}
+
+.label {
+}
+
+.scoreItem {
+  width : 80%;
+}
+
+.scoreBox {
+  display: flex;
+  border: #40708e solid 2px;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 
 #scoreDiv{
-  margin-top: 10px;
-  margin-bottom: 10px;
-  border : 1px solid black;
-  background-color: darkgrey;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(10,5,47,60%);
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+  width: 200px;
 }

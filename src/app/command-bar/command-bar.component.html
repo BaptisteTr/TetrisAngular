@@ -6,15 +6,16 @@
   <div class="break"></div>
   <div (click)="triggerDown()" id="down" class="button"><img src="assets/img/down-arrow.png"></div>
   <div class="break"></div>
-  <div (click)="triggerPause()" id="pause" class="button"><img src="assets/img/pause.png"></div>
-  <div class="break"></div>
-  <div (click)="triggerRestart()" id="restart" class="button"><img src="assets/img/restart.png"></div>
-  <div class="break"></div>
-  <div class="options">
-    <label class="switch">
-      <input [(ngModel)]='toggle' (change)="triggerHover()" type="checkbox">
-      <span class="slider"></span>
-    </label>
+  <div id="gameButtons">
+    <div class="buttonAndLabel">
+      <p>Restart</p>
+      <div (click)="triggerRestart()" id="restart" class="button"><img src="assets/img/restart.png"></div>
+    </div>
+    <div class="buttonAndLabel">
+      <p>Pause</p>
+      <div (click)="triggerPause()" id="pause" class="button"><img src="assets/img/pause.png"></div>
+    </div>
   </div>
+  <div class="break"></div>
 
 </div>

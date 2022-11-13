@@ -1,9 +1,27 @@
 
 <section >
+  <div class="leftMenu">
+    <app-score-counter id="scoreLeft" [score]="this.score"></app-score-counter>
+    <div class="options">
+      <p>Drop indicator </p>
+      <label class="switch">
+        <input [(ngModel)]='toggle' type="checkbox">
+        <span class="slider"></span>
+      </label>
+    </div>
+  </div>
   <app-grille id="grid" class="children" [hover]="this.toggle" (scoreChanged)="scoreChangedHandler($event)" (tetrominoChanged)="nextTetrominoChangedHandler($event)"></app-grille>
-  <div class="children"  id="scoreBar">
+  <div id="scoreBar">
     <app-next-tetromino id="nextTetromino" [tetromino]="this.nextTetromino"></app-next-tetromino>
-    <app-score-counter [score]="this.score"></app-score-counter>
-    <app-command-bar id="commandBar" (toggleHover)="toggleHandler($event)" (left)="leftHandler()" (right)="rightHandler()" (down)="downHandler()" (rotate)="rotateHandler()" (pause)="pauseHandler()" (restart)="restartHandler()"></app-command-bar>
+    <div id="scoreRight">
+      <app-score-counter [score]="this.score"></app-score-counter></div>
+    <app-command-bar id="commandBar" (left)="leftHandler()" (right)="rightHandler()" (down)="downHandler()" (rotate)="rotateHandler()" (pause)="pauseHandler()" (restart)="restartHandler()"></app-command-bar>
+  </div>
+  <div class="optionsMobile">
+    <p>Drop indicator </p>
+    <label class="switch">
+      <input [(ngModel)]='toggle' type="checkbox">
+      <span class="slider"></span>
+    </label>
   </div>
 </section>

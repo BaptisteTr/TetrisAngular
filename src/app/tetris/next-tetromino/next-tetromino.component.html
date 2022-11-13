@@ -1,6 +1,9 @@
-<div id="next-grid" class="wrapper grid">
+<div id="next-grid" class="wrapper ">
 
-  <div *ngFor="let square of grid.square_list" class="cell {{square.color}}"></div>
+  <div class="grid" style="--height:{{ this.grid.height }}; --width:{{ this.grid.width }};">
+    <div *ngFor="let square of grid.square_list" class="cell {{square.color}}"></div>
+  </div>
+
 
 </div>
 
