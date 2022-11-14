@@ -24,9 +24,7 @@ export class NextTetrominoComponent implements OnInit, OnChanges  {
   }
 
   refresh(): void{
-
     if (this.tetromino != null){
-      console.log(this.tetromino.getHeight(), this.tetromino.getWidth());
       this.grid = new Grid(this.tetromino.getHeight(), this.tetromino.getWidth());
       this.grid.display(this.tetromino, undefined);
     }

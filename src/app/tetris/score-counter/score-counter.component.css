@@ -33,4 +33,5 @@ p{
   padding-right: 20px;
   padding-bottom: 20px;
   width: 200px;
+  backdrop-filter: blur(2px);
 }

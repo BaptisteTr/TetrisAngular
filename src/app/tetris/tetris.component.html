@@ -8,6 +8,7 @@
         <input [(ngModel)]='toggle' type="checkbox">
         <span class="slider"></span>
       </label>
+      <app-music></app-music>
     </div>
   </div>
   <app-grille id="grid" class="children" [hover]="this.toggle" (scoreChanged)="scoreChangedHandler($event)" (tetrominoChanged)="nextTetrominoChangedHandler($event)"></app-grille>
@@ -23,5 +24,7 @@
       <input [(ngModel)]='toggle' type="checkbox">
       <span class="slider"></span>
     </label>
+
+    <app-music></app-music>
   </div>
 </section>

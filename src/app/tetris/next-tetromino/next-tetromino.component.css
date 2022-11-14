@@ -4,10 +4,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid #050202;
-  background-color: rgba(0,0,0,50%);
+  background-color: rgba(10,5,47,60%);
   width : 150px;
   height: 150px;
+  backdrop-filter: blur(2px);
 
 }
 

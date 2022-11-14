@@ -3,7 +3,7 @@
   grid-template-columns: repeat(10, 1fr);
   gap: 0px;
   position: relative;
-  border: 20px solid #3f3f3f;
+  border: 29px solid rgba(34, 35, 67,85%);
   box-shadow: 0 0 100px 0 #000;
   aspect-ratio: 1/2;
   background: repeating-linear-gradient(

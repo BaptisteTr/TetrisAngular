@@ -1,0 +1,5 @@
+<div class="container">
+  <span>Audio</span>
+  <div (click)="play()" *ngIf="!state?.playing" class="button"><img src="assets/img/play.png"></div>
+  <div (click)="pause()" id="pause" class="button" *ngIf="state?.playing"><img src="assets/img/pause2.png"></div>
+</div>
