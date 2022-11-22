@@ -122,7 +122,6 @@ input:checked + .slider:before {
 
 @media screen and (max-width: 780px){
   section {
-    flex-direction: row;
     padding-top: 0;
     gap: 0;
   }
@@ -133,6 +132,7 @@ input:checked + .slider:before {
 
   #scoreRight {
     display: block;
+    margin: auto;
   }
 
   #commandBar {

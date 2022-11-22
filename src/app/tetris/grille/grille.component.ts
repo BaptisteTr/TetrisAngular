@@ -196,6 +196,10 @@ export class GrilleComponent implements OnInit {
     this.currentTetromino.lock(this.grid);
   }
 
+  onZero(){
+    this.currentTetromino.moveDownUntilLock(this.grid);
+  }
+
   onPause(){
     if(this.pause){
       this.pause = false;
@@ -270,8 +274,10 @@ export class GrilleComponent implements OnInit {
         this.onSpaceBar();
       } else if(event.key == " "){
         this.onSpaceBar();
-      } else if(event.key == "l"){
+      } else if(event.key == "l") {
         this.onL();
+      } else if(event.key == '0') {
+        this.onZero();
       } else {
         console.log(event.key);
       }
