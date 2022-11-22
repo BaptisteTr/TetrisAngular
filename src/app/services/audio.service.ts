@@ -76,6 +76,10 @@ export class AudioService {
     this.audioObj.play();
   }
 
+  setVolume(level : number) {
+    this.audioObj.volume = level;
+  }
+
   pause() {
     this.audioObj.pause();
   }

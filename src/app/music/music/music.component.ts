@@ -12,6 +12,7 @@ export class MusicComponent implements OnInit {
   files: Array<any> = [];
   state: StreamState | undefined;
   currentFile: any = {};
+  volume = 10;
 
   constructor(public audioService: AudioService) {
 
@@ -46,7 +47,12 @@ export class MusicComponent implements OnInit {
   }
 
   play() {
+    this.audioService.setVolume(this.volume / 100);
     this.audioService.play();
+  }
+
+  setVolume() {
+    this.audioService.setVolume(this.volume / 100);
   }
 
 }
