@@ -1,12 +1,14 @@
 
 <div class="wrapper">
-  <div (click)="triggerLeft()" class="button"><img src="assets/img/left-arrow.png"></div>
-  <div (click)="triggerRotate()" class="button"><img src="assets/img/refresh.png"></div>
-  <div (click)="triggerRight()" class="button"><img src="assets/img/right-arrow.png"></div>
-  <div class="break"></div>
-  <div (click)="triggerDown()" id="down" class="button"><img src="assets/img/down-arrow.png"></div>
-  <div class="break"></div>
-  <div id="gameButtons">
+  <div id="controlButtons" *ngIf="displayType === 'desktop'">
+    <div (click)="triggerLeft()" class="button"><img src="assets/img/left-arrow.png"></div>
+    <div (click)="triggerRotate()" class="button"><img src="assets/img/refresh.png"></div>
+    <div (click)="triggerRight()" class="button"><img src="assets/img/right-arrow.png"></div>
+    <div class="break"></div>
+    <div (click)="triggerDown()" id="down" class="button"><img src="assets/img/down-arrow.png"></div>
+    <div class="break"></div>
+  </div>
+  <div id="gameButtons" [ngClass]="this.displayType">
     <div class="buttonAndLabel">
       <p>Restart</p>
       <div (click)="triggerRestart()" id="restart" class="button"><img src="assets/img/restart.png"></div>
@@ -14,6 +16,45 @@
     <div class="buttonAndLabel">
       <p>Pause</p>
       <div (click)="triggerPause()" id="pause" class="button"><img src="assets/img/pause.png"></div>
+    </div>
+    <div class="buttonAndLabel">
+      <p>Infos</p>
+      <div id="infos" class="button"><img src="assets/img/point-dinterrogation.png">
+        <div class="hiddenInfo">
+          <h3>Commands</h3>
+
+          <div>
+            <li>up arrow / spacebar: rotates piece</li>
+            <li>down arrow: makes currently falling piece fall faster</li>
+            <li>right arrow: makes currently falling piece move right</li>
+            <li>left arrow: makes currently falling piece move left</li>
+            <li>0 / Enter: makes currently falling piece fall all the way to the bottom</li>
+          </div>
+
+          <h3>Score</h3>
+
+          <table>
+            <tr>
+              <th>Level</th><th>Points for 1 line</th><th>Points for 2 line</th><th>Points for 3 line</th><th>Points for 4 line</th>
+            </tr>
+            <tr>
+              <td>0</td><td>40</td><td>100</td><td>300</td><td>1200</td>
+            </tr>
+            <tr>
+              <td>1</td><td>80</td><td>200</td><td>600</td><td>2400</td>
+            </tr>
+            <tr>
+              <td>2</td><td>120</td><td>300</td><td>900</td><td>3600</td>
+            </tr>
+            <tr>
+              <td>9</td><td>400</td><td>1000</td><td>3000</td><td>12000</td>
+            </tr>
+            <tr>
+              <td>n</td><td>40 x (n+1)</td><td>100 x (n+1)</td><td>300 x (n+1)</td><td>1200 x (n+1)</td>
+            </tr>
+          </table>
+        </div>
+      </div>
     </div>
   </div>
   <div class="break"></div>

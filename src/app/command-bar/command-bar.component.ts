@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'app-command-bar',
@@ -13,6 +13,7 @@ export class CommandBarComponent implements OnInit {
   @Output() rotate =  new EventEmitter<any>();
   @Output() pause =  new EventEmitter<any>();
   @Output() restart =  new EventEmitter<any>();
+  @Input() displayType : string = "desktop";
 
   constructor() { }
 

@@ -38,6 +38,14 @@ img {
   padding-top: 20px;
 }
 
+#controlButtons {
+  width: 200px;
+  display: flex;
+  justify-content: center;
+  flex-flow: row wrap;
+  padding-top: 20px;
+}
+
 #down {
   align-self: center;
 }
@@ -48,7 +56,7 @@ img {
   width: 200px;
 }
 
-#gameButtons{
+#gameButtons {
   display: flex;
   gap : 20px;
   padding-top: 50px;
@@ -138,6 +146,56 @@ input:checked + .slider:before {
   border-radius: 50%;
 }
 
+.hiddenInfo {
+  display: none;
+}
+
+.hiddenInfo > table {
+  border-collapse: collapse;
+  margin: auto auto 20px;
+}
+
+table, th, td {
+  border: 1px solid;
+  padding: 5px;
+}
+
+#infos .hiddenInfo {
+  width: 700px;
+  background-color: #1c1d39;
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+  border-radius: 6px;
+  bottom: 130%;
+  left: 50%;
+  margin-left: -350px;
+  position: absolute;
+  z-index: 2;
+}
+
+.hiddenInfo > div {
+  text-align: left;
+  padding: 20px 50px;
+}
+
+#infos:hover .hiddenInfo {
+  display: block;
+}
+
+#infos .hiddenInfo::after {
+  content: " ";
+  position: absolute;
+  top: 100%; /* At the bottom of the tooltip */
+  left: calc(50% - 10px);
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: black transparent transparent transparent;
+}
+
+
+
 @media screen and (max-width: 780px){
   .button {
     width: min(8vh,15vw);
@@ -153,8 +211,19 @@ input:checked + .slider:before {
     position:relative;
   }
 
-
   .wrapper{
     padding-top: 5px;
+  }
+
+  #infos .hiddenInfo {
+    width: 100%;
+  }
+
+  #desktop {
+    display: none;
+  }
+
+  #mobile {
+    display: block;
   }
 }
