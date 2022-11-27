@@ -1,7 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 
 html{
-
   background-size: 120vw 120vh;
   background-image:
     linear-gradient(#1212a6, blue),
@@ -26,5 +25,14 @@ body {
   }
   #headerContent{
     height : 0px;
+  }
+
+  html{
+    background-size: 120vw 160vh;
+    background-image:
+      linear-gradient(#1212a6, blue),
+      url("/assets/img/background.jpg") ;
+    background-attachment: fixed;
+    background-blend-mode: darken;
   }
 }
