@@ -10,6 +10,7 @@ import { ScoreCounterComponent } from './tetris/score-counter/score-counter.comp
 import { CommandBarComponent } from './command-bar/command-bar.component';
 import {FormsModule} from "@angular/forms";
 import { MusicComponent } from './music/music/music.component';
+import { CommandBarMobileComponent } from './command-bar/command-bar-mobile/command-bar-mobile.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { MusicComponent } from './music/music/music.component';
     TetrisComponent,
     ScoreCounterComponent,
     CommandBarComponent,
-    MusicComponent
+    MusicComponent,
+    CommandBarMobileComponent
   ],
     imports: [
         BrowserModule,

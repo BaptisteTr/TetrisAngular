@@ -19,7 +19,7 @@
     <app-command-bar id="commandBar" (left)="leftHandler()" (right)="rightHandler()" (down)="downHandler()" (rotate)="rotateHandler()" (pause)="pauseHandler()" (restart)="restartHandler()"></app-command-bar>
   </div>
   <div class="optionsMobile">
-    <app-command-bar id="commandBar2" [displayType]="'mobile'"></app-command-bar>
+    <app-command-bar-mobile></app-command-bar-mobile>
     <p>Drop indicator </p>
     <label class="switch">
       <input [(ngModel)]='toggle' type="checkbox">

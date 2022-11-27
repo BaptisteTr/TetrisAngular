@@ -70,11 +70,11 @@ input[type=range]::-ms-track {
 }
 
 input[type=range]::-webkit-slider-thumb {
-  -webkit-appearance: none;
   width: 20px;
   height: 20px;
   border-radius: 2px;
   border-width: 3px;
+  transform: translateY(-10px) translateX(-4px);
   border-style: outset;
   background-color: #f3d528;
   border-color:#f3e528;
